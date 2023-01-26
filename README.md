@@ -7,7 +7,7 @@ extremely quantized neural networks, such as
 Binarized Neural Networks (BNNs). It currently supports various mobile platforms
 and has been benchmarked on a Pixel 1 phone and a Raspberry Pi.
 LCE provides a collection of hand-optimized [TensorFlow Lite](https://www.tensorflow.org/lite)
-custom operators for supported instruction sets, developed in inline assembly or in C++
+custom operators for supported instruction sets, developed in inline assembly or C++
 using compiler intrinsics. LCE leverages optimization techniques
 such as **tiling** to maximize the number of cache hits, **vectorization** to maximize
 the computational throughput, and **multi-threading parallelization** to take
@@ -26,7 +26,7 @@ advantage of multi-core modern desktop and mobile CPUs.
       is available in [Larq Zoo](https://docs.larq.dev/zoo/)
       and can be used out-of-the-box with LCE.
 
-    - LCE provides a custom [MLIR-based model converter](https://docs.larq.dev/compute-engine/api/converter) which
+    - LCE provides a custom [MLIR-based model converter](https://docs.larq.dev/compute-engine/api/converter) that
       is fully compatible with TensorFlow Lite and performs additional
       network level optimizations for Larq models.
 
@@ -43,7 +43,7 @@ advantage of multi-core modern desktop and mobile CPUs.
 
 ## Performance
 
-The table below presents **single-threaded** performance of Larq Compute Engine on
+The table below presents a **single-threaded** performance of Larq Compute Engine on
 different versions of a novel BNN model called QuickNet (trained on ImageNet dataset, released on [Larq Zoo](https://docs.larq.dev/zoo/))
 on a Raspberry Pi 4 Model B at 1.5GHz ([BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)) board, a [Pixel 1 Android phone (2016)](https://support.google.com/pixelphone/answer/7158570?hl=en-GB), and a [Mac Mini with M1 ARM CPU](https://www.apple.com/uk/mac-mini/):
 
@@ -57,7 +57,7 @@ For reference, [dabnn](https://github.com/JDAI-CV/dabnn) (the other main BNN lib
 while LCE achieves an inference time of 41.6 ms for Bi-RealNet on the same device.
 They furthermore present a modified version, BiRealNet-Stem, which achieves the same accuracy of 56.4% in 43.2 ms.
 
-The following table presents **multi-threaded** performance of Larq Compute Engine on
+The following table presents a **multi-threaded** performance of Larq Compute Engine on
 a Pixel 1 phone and a Raspberry Pi 4 Model B at 1.5GHz ([BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711))
 board:
 
@@ -91,18 +91,17 @@ Follow these steps to deploy a BNN with LCE:
 
 4. **Run inference**
 
-    LCE uses the [TensorFlow Lite Interpreter](https://www.tensorflow.org/lite/guide/inference) to perform an inference. In addition to the already available built-in TensorFlow Lite operators, optimized LCE operators are registered to the interpreter to execute the Larq specific subgraphs of the model. An example to create and build an LCE compatible TensorFlow Lite interpreter for your own applications is provided [here](https://docs.larq.dev/compute-engine/inference).
+    LCE uses the [TensorFlow Lite Interpreter](https://www.tensorflow.org/lite/guide/inference) to perform inference. In addition to the already available built-in TensorFlow Lite operators, optimized LCE operators are registered to the interpreter to execute the Larq specific subgraphs of the model. An example to create and build an LCE compatible TensorFlow Lite interpreter for your own applications is provided [here](https://docs.larq.dev/compute-engine/inference).
 
 ## Next steps
 
 - Explore [Larq pre-trained models](https://docs.larq.dev/zoo/).
 - Learn how to [build](https://docs.larq.dev/larq/guides/bnn-architecture/) and
-  [train](https://docs.larq.dev/larq/guides/bnn-optimization/) BNNs for your own
-  application with Larq.
+  [train](https://docs.larq.dev/larq/guides/bnn-optimization/) BNNs for your application with Larq.
 - If you're a mobile developer, visit [Android quickstart](https://docs.larq.dev/compute-engine/quickstart_android).
 - See our build instructions for Raspberry Pi and 64-bit ARM-based boards [here](https://docs.larq.dev/compute-engine/build/arm).
 - Try our [example programs](https://github.com/larq/compute-engine/tree/main/examples).
 
 ## About
 
-Larq Compute Engine is being developed by a team of deep learning researchers and engineers at Plumerai to help accelerate both our own research and the general adoption of Binarized Neural Networks.
+Larq Compute Engine is being developed by a team of deep learning researchers and engineers at Plumerai to help accelerate both our research and the general adoption of Binarized Neural Networks.
